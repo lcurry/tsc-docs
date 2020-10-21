@@ -530,7 +530,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>When creating merge requests, create feature branches on forks rather then on the primary repository, just as things are done in large open source projects</p>
 </li>
 <li>
-<p>The "Release Branch" is the branch that goes into production. This may be different from team to team.  There are many different naming conventions for a branch that goes to production (e.g. <code>main</code>, <code>trunk</code>, release branch, or "Release 1.0.3"). This documentation will use "Release branch" to refer to whichever branch(s) have the possibility of going all the way to production.</p>
+<p>The "Release Branch" is the branch that goes into production. The term "main" will be used to refer to the release branch. The name of this branch may be different from team to team.  There are many different naming conventions for a branch that goes to production (e.g. "master", "trunk", "release", etc.)</p>
 </li>
 <li>
 <p>The minimum, and recommended, number of logical environments is</p>
@@ -547,6 +547,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>For UAT testbed infrastructure (e.g. Selenium Grid), such infrastructure, when possible, should be dynamically created on-demand (by infrastructure-as-code) using TSSC step. There will be cases where UAT infrastructure already exists in-house. In such cased, the use of pre-existing/static infrastructure is a supported alternative for UAT testing.</p>
 </li>
 </ul>
 </div>
@@ -1361,7 +1364,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Deploy or Update TEST Environment</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Deploy code to shared test environment with latest feature available for shared testing</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1376,7 +1379,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Validate Test Environment Configuration</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Verify that the test environment has been built successfully and configured according to pre-defined specifications and rules</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1391,7 +1394,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Run Performance Tests (Full)</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>To determining the speed, responsiveness and stability impact of new development when under workload</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1406,7 +1409,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Create PROD Environment</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Create PROD Environment as-needed</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1421,7 +1424,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Deploy or Update PROD Environment</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Deploy tested code to shared prod environment with latest feature available to end users</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1436,7 +1439,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Validate Prod Environment Configuration</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Verify that the deployment environment has been built successfully and configured according to pre-defined specifications and rules</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1451,7 +1454,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Run Canary Testing</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Allows you to roll out new code/features to a subset of end-users as an initial test.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1466,7 +1469,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Collect, Bundle, &amp; Publish Test Reports and Metadata</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Provide central dashboard with published test results as an indicator of overall health of system</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1481,7 +1484,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Collect Lessons Learned</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Collect, understand and act upon positive and negative lessons learned.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1496,7 +1499,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Celebrate</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>TODO - purpose</mark></p>
+<p>Work hard - now play hard!</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -3021,7 +3024,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-06 14:24:09 UTC
+Last updated 2020-10-21 18:58:09 UTC
 </div>
 </div>
 </body>
