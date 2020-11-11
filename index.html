@@ -549,7 +549,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 <li>
-<p>For UAT testbed infrastructure (e.g. Selenium Grid), such infrastructure, when possible, should be dynamically created on-demand (by infrastructure-as-code) using TSSC step. There will be cases where UAT infrastructure already exists in-house. In such cased, the use of pre-existing/static infrastructure is a supported alternative for UAT testing.</p>
+<p>A "step runner" is the implementation of all the necessary work associated with common steps in a CI/CD pipeline. Examples of step runners include: package, tag source, unit test, etc. The implementation of the step runner is abstracted away from the user, and available as reusable modules via the step runner library.</p>
+</li>
+<li>
+<p>For UAT testbed infrastructure (e.g. Selenium Grid), such infrastructure, when possible, should be dynamically created on-demand (by infrastructure-as-code) using a step runner from the step runner library. There will be cases where UAT infrastructure already exists in-house. In such cases, the use of pre-existing/static infrastructure is a supported alternative for UAT testing.  For example, if your company already has an established deployment of selenium grid, that instance of selenium grid can be used rather than have the framework dynamically stand up additional instances.</p>
 </li>
 </ul>
 </div>
@@ -1043,7 +1046,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Static Code Analysis</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The pipeline will perform static analysis on source code to catch defects, vulnerabilities, programmatic and stylistic problems as early in the development life cycle as possible, prior to deploying and running the code.</p>
+<p>The pipeline will perform static analysis on source code to identify defects, vulnerabilities, programmatic and stylistic problems as early in the development life cycle as possible. For example, static analysis is completed prior to building, scanning and deploying the image.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1364,7 +1367,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Deploy or Update TEST Environment</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Deploy code to shared test environment with latest feature available for shared testing</p>
+<p>Deploy image built from the latest release branch to the test environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1379,7 +1382,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Validate Test Environment Configuration</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Verify that the test environment has been built successfully and configured according to predefined specifications and rules</p>
+<p>Using predefined rules, validate the configuration files used to deploy the test environment</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1394,7 +1397,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Run Performance Tests (Full)</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>To determining the speed, responsiveness and stability impact of new development when under workload</p>
+<p>Execute tests to determine the speed, responsiveness and stability</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -3024,7 +3027,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-04 21:13:38 UTC
+Last updated 2020-11-11 15:41:33 UTC
 </div>
 </div>
 </body>
